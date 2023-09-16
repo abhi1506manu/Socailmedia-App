@@ -8,8 +8,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
-import { error } from "console";
-
+import { register } from "./conntrollers/auth.js";
 /* Configuration */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,6 +36,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+//Routes with files
+app.post("/auth/register",upload.single("picture"), register);
+
 
 //MongoDb setup
 const PORT = process.env.port || 5001;
