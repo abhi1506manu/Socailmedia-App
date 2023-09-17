@@ -11,6 +11,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js"
 import { register } from "./conntrollers/auth.js";
 import { verifyToken } from "./middleware/auth.js";
+import userRoutes from "./routes/users.js"
 
 /* Configuration */
 const __filename = fileURLToPath(import.meta.url);
@@ -45,6 +46,7 @@ app.post("/auth/register",upload.single("picture"), register);
 
 //Routes
 app.use("/auth",authRoutes);
+app.use("/users", userRoutes);
 
 
 //MongoDb setup
