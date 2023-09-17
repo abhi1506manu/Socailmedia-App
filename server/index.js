@@ -8,7 +8,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/auth.js"
 import { register } from "./conntrollers/auth.js";
+import { verifyToken } from "./middleware/auth.js";
+
 /* Configuration */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,6 +42,9 @@ const upload = multer({ storage });
 
 //Routes with files
 app.post("/auth/register",upload.single("picture"), register);
+
+//Routes
+app.use("/auth",authRoutes);
 
 
 //MongoDb setup
