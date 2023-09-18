@@ -14,6 +14,9 @@ import { verifyToken } from "./middleware/auth.js";
 import userRoutes from "./routes/users.js"
 import {createPost} from "./conntrollers/posts.js"
 import postRoutes from "./routes/posts.js"
+import Post from "./models/posts.js";
+import User from "./models/User.js";
+import { posts,users } from "./data/index.js";
 
 /* Configuration */
 const __filename = fileURLToPath(import.meta.url);
@@ -64,5 +67,9 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Serevr Port:${PORT}`));
+
+    // User.insertMany(users);
+    // Post.insertMany(posts);
+
   })
   .catch((error) => console.log(`${error} did not connect`));
