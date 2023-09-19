@@ -13,7 +13,46 @@ export const authSlice = createSlice({
     reducers:{
         setMode: (state)=>{
             state.mode = state.mode ==="light"?"dark":"light";
-            
+
+        },
+
+        setLogin:(state, action) =>{
+            state.user = action.payload.user;
+            state.token = action.payload.token;
+        },
+
+        setLogout: (state, action)=>{
+            state.user = null;
+            state.token = null;
+        },
+
+        setFriends: (state, action)=>{
+            if(state.user){
+                state.user.frends = action.payload.friends;
+            }else{
+                console.log("user friend non-existant :(");
+            }
+        },
+
+        setPosts: (state, action)=>{
+            state.posts = action.payload.posts;
+
+        },
+
+        setPost: (state, action)=>{
+            const updatePosts = state.posts.map((post)=>{
+                if(post._id === action.payload.post_id){
+                    return action.payload.post;
+                }
+                return post;
+            });
+
+            state.posts = updatePosts;
         }
+
+
     }
 })
+
+export const {setMode, setLogin, setLogout,setFriends,setPost,setPosts} = authSlice.actions;
+export default authSlice.reducer;
