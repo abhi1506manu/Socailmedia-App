@@ -33,7 +33,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
-  console.log(user);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
   const theme = useTheme();
@@ -117,7 +116,9 @@ const Navbar = () => {
       ) : (
         <IconButton
           onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
-        ></IconButton>
+        >
+          <Menu/>
+        </IconButton>
       )}
 
       {/* Mobile Nav */}
@@ -133,7 +134,7 @@ const Navbar = () => {
           backgroundColor={background}
         >
           {/* Close Icon */}
-          <Box display="flex" justifyContent="space-between" p="1rem">
+          <Box display="flex" justifyContent="flex-end" p="1rem">
             <IconButton
               onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}
             >
