@@ -1,9 +1,36 @@
-import React from 'react'
+import React from "react";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import Form from "./Form";
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+  const theme = useTheme();
+  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
-export default Login
+  return (
+    <Box>
+      <Box
+        width="100%"
+        backgroundColor={theme.palette.background.alt}
+        p="1rem 6%"
+        textAlign="center"
+      >
+        <Typography fontWeight="bold" fontSize="32px" color="primary">
+          SocialMedia
+        </Typography>
+      </Box>
+      <Box
+        width={isNonMobileScreens ? "50%" : "93%"}
+        p="2rem"
+        m="2rem auto"
+        borderRadius="1.5rem"
+        backgroundColor={theme.palette.background.alt}
+      >
+        <Typography fontWeight="500" variant="h5" sx={{mb:"1.5rem"}}>
+          Welcom to Socipedia, The Social Media for Sociopedia !
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+export default Login;
