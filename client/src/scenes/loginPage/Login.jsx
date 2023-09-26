@@ -25,9 +25,10 @@ const Login = () => {
         borderRadius="1.5rem"
         backgroundColor={theme.palette.background.alt}
       >
-        <Typography fontWeight="500" variant="h5" sx={{mb:"1.5rem"}}>
+        <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcom to Socipedia, The Social Media for Sociopedia !
         </Typography>
+        <Form />
       </Box>
     </Box>
   );
