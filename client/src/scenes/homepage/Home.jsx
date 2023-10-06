@@ -6,6 +6,7 @@ import Login from "../loginPage/Login";
 import UserWidget from "../widgets/UserWidget";
 import MyPost from "../widgets/MyPost";
 import PostsWidget from "../widgets/PostsWidget";
+import FriendList from "../widgets/FriendList";
 
 const Home = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
@@ -31,7 +32,12 @@ const Home = () => {
           <MyPost picturePath={picturePath} />
           <PostsWidget userId={_id} />
         </Box>
-        {isNonMobileScreens && <Box flexBasis="26%"></Box>}
+        {isNonMobileScreens && (
+          <Box flexBasis="26%">
+            <Box m="2rem 0" />
+            <FriendList userId={_id} />
+          </Box>
+        )}
       </Box>
     </Box>
   );
