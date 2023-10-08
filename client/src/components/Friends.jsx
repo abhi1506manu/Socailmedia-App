@@ -44,7 +44,7 @@ const Friends = ({ friendId, name, subtitle, userPicturePath }) => {
     <FlexBetween gap="1rem">
       <UserImage image={userPicturePath} size="55px" />
       <Box
-        onCLick={() => {
+        onClick={() => {
           navigate(`/profile/${friendId}`);
           navigate(0);
         }}

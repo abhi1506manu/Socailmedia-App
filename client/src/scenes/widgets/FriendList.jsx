@@ -5,11 +5,12 @@ import WidgetWrapper from "../../components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "../../state";
 
-const FriendList = () => {
+const FriendList = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
+
 
   const getFriends = async () => {
     const response = await fetch(

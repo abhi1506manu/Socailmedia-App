@@ -68,7 +68,7 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Serevr Port:${PORT}`));
 
-    // User.insertMany(users);
+    // UseMar.insertny(users);
     // Post.insertMany(posts);
 
   })
