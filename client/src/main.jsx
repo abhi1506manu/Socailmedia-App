@@ -5,6 +5,7 @@ import "./index.css";
 import authReducer from "./state";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 //Redux persist for local storage
 import {
@@ -40,6 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistStore(store)}>
+      <ToastContainer/>
         <App />
       </PersistGate>
     </Provider>

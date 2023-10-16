@@ -29,7 +29,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-  }, [userId]);
+  }, []);
 
   if (!user) return null;
 
@@ -52,7 +52,7 @@ const Profile = () => {
           flexBasis={isNonMobileScreens ? "42%" : undefined}
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
-          <MyPost picturePath={loggedInUser.picturePath} />
+          <MyPost picturePath={user.picturePath} />
           <Box m="2rem 0" />
           <PostsWidget userId={userId} isProfile />
         </Box>

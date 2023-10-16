@@ -22,6 +22,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
+  const  main2 = palette.primary.main;
 
   const getUser = async () => {
     const response = await fetch(`http://localhost:3000/users/${userId}`, {
@@ -63,7 +64,7 @@ const UserWidget = ({ userId, picturePath }) => {
           <Box>
             <Typography
               variant="h4"
-              color={dark}
+              color={main2}
               fontWeight="500"
               sx={{
                 "&:hover": {

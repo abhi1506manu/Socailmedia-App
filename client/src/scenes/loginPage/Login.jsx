@@ -15,7 +15,7 @@ const Login = () => {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          SocialMedia
+          Socialize
         </Typography>
       </Box>
       <Box
@@ -26,7 +26,7 @@ const Login = () => {
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Welcom to Socipedia, The Social Media for Sociopedia !
+          Welcom to Socialize, The Social Media for Socials !
         </Typography>
         <Form />
       </Box>

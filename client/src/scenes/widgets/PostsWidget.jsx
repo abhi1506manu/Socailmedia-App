@@ -8,6 +8,9 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
 
+  console.log(`all post ${posts}`)
+
+
   const getPosts = async () => {
     const response = await fetch("http://localhost:3000/posts", {
       method: "GET",
@@ -15,6 +18,8 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     });
 
     const data = await response.json();
+    // console.log("all post")
+    // console.log(data)
     dispatch(setPosts({ posts: data }));
   };
 
@@ -28,6 +33,9 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     );
 
     const data = await response.json();
+    // // console.log(`userid- ${userId}`)
+    // console.log("getuserpost")
+    // console.log(data)
     dispatch(setPosts({ posts: data }));
   };
 
@@ -39,9 +47,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     }
   }, []);
 
+
   return (
     <>
-      {posts.map(
+      {Array.from(posts).map(
         ({
           _id,
           userId,

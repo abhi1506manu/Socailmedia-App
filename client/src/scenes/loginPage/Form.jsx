@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   Box,
   Button,
@@ -94,11 +96,19 @@ const Form = () => {
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
 
-    if (loggedIn) {
+    if (loggedIn.user) {
       dispatch(setLogin({ user: loggedIn.user, token: loggedIn.token }));
+      navigate("/home");
+    } else {
+      // User does not exist or wrong credentials, show a notification
+      console.log("error")
+      toast.error("Invalid Credential", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      
     }
 
-    navigate("/home");
+   
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
@@ -179,6 +189,7 @@ const Form = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.password}
+                  type="password"
                   name="password"
                   error={Boolean(touched.password) && Boolean(errors.password)}
                   helperText={touched.password && errors.password}
@@ -262,6 +273,7 @@ const Form = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.password}
+                  type="password"
                   name="password"
                   error={Boolean(touched.password) && Boolean(errors.password)}
                   helperText={touched.password && errors.password}
